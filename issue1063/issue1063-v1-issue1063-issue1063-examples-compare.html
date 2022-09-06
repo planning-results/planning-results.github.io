@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>issue1063-v2-issue1063-issue1063-v1-compare</title>
+<meta name="generator" content="https://txt2tags.org">
+<style type="text/css">
+blockquote{margin: 1em 2em; border-left: 2px solid #999;
+  font-style: oblique; padding-left: 1em;}
+blockquote:first-letter{margin: .2em .1em .1em 0; font-size: 160%; font-weight: bold;}
+blockquote:first-line{font-weight: bold;}
+body{font-family: sans-serif;}
+hr{background-color:#000;border:0;color:#000;}
+hr.heavy{height:2px;}
+hr.light{height:1px;}
+img{border:0;display:block;}
+img.right{margin:0 0 0 auto;}
+img.center{border:0;margin:0 auto;}
+table{border-collapse: collapse;}
+table th,table td{padding: 3px 7px 2px 7px;}
+table th{background-color: lightgrey;}
+table.center{margin-left:auto; margin-right:auto;}
+.center{text-align:center;}
+.right{text-align:right;}
+.left{text-align:left;}
+.tableborder,.tableborder td,.tableborder th{border:1px solid #000;}
+.underline{text-decoration:underline;}
+</style>
+<style type="text/css">
+    body {
+        font-family: Ubuntu, Helvetica, Arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table th {
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        background-color: #aaa;
+        color: #ffffff;
+    }
+</style>
+<script type="text/javascript">
+function toggle_element(element) {
+    if (element.style.display == "none") {
+        element.style.display = "";
+    } else {
+        element.style.display = "none";
+    }
+}
+
+function find_next(element, classname) {
+    element = element.nextSibling;
+    while(element.nodeName != classname)
+        element = element.nextSibling;
+    return element;
+}
+
+function toggle_table(toggle_button) {
+    var table = find_next(toggle_button, "TABLE");
+    toggle_element(table);
+    if (toggle_button.innerHTML == "Show table") {
+        toggle_button.innerHTML = "Hide table";
+    } else {
+        toggle_button.innerHTML = "Show table";
+    }
+}
+
+function show_table(section) {
+    heading = section.children[0];
+    var toggle_button = find_next(heading, "BUTTON");
+    var table = find_next(toggle_button, "TABLE");
+    table.style.display = "";
+    toggle_button.innerHTML = "Hide table";
+}
+
+function show_main_tables() {
+    var names = ["unexplained-errors", "info", "summary"];
+    for (var i = 0; i < names.length; i++) {
+        var section = document.getElementById(names[i]);
+        try {
+            show_table(section);
+        } catch (e) {
+            console.log("No table found for " + names[i]);
+        }
+    }
+
+    // If there is only one table, show it and hide the button.
+    var buttons = document.getElementsByTagName('button');
+    var tables = document.getElementsByTagName('table');
+    if (buttons.length == 1 && tables.length == 1) {
+        tables[0].style.display = "";
+        buttons[0].style.display = "none";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", show_main_tables);
+</script>
+</head>
+<body>
+<header>
+<hgroup>
+<h1>issue1063-v2-issue1063-issue1063-v1-compare</h1>
+<h3>2022-09-06</h3>
+</hgroup>
+</header>
+<article>
+
+<div class="body" id="body">
+
+<ul>
+<li><strong><a href="#info" onclick="show_table(document.getElementById('info'));">Info</a></strong>
+</li>
+<li><strong><a href="#summary" onclick="show_table(document.getElementById('summary'));">Summary</a></strong>
+</li>
+<li><strong><a href="#translator_time_done" onclick="show_table(document.getElementById('translator_time_done'));">translator_time_done</a></strong>
+  <ul>
+  <li><a href="#translator_time_done-examples" onclick="show_table(document.getElementById('translator_time_done-examples'));">examples</a>
+  </li>
+  </ul>
+</li>
+</ul>
+
+<section id="info">
+<h1>info</h1>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>algorithm</th>
+<th>local_<wbr>revision</th>
+<th>global_<wbr>revision</th>
+<th>driver_<wbr>options</th>
+</tr>
+<tr>
+<td>issue1063-translate-only</td>
+<td>issue1063</td>
+<td>a2560abee99bfb5b068eacd14e2bc3c2bd9a08aa</td>
+<td>['--validate', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--translate']</td>
+</tr>
+<tr>
+<td>issue1063-v1-translate-only</td>
+<td>issue1063-v1</td>
+<td>f007f65a5a8fdf772d3033d670e62ab3c282193f</td>
+<td>['--validate', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--translate']</td>
+</tr>
+</table>
+
+<p>
+Used nodes: {&lt;attribute 'node' missing&gt;}
+</p>
+
+</section>
+<section id="summary">
+<h1>summary</h1>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>Summary</th>
+<th>issue1063-translate-only</th>
+<th>issue1063-v1-translate-only</th>
+<th>Diff (translate-only)</th>
+</tr>
+<tr>
+<td><a href="#translator_time_done" onclick="show_table(document.getElementById('translator_time_done'));">translator_time_done - Sum</a></td>
+<td class="right"><span style="color:rgb(0,0,178)">184.74</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">35.67</span></td>
+<td class="right"><span style="color:green">-149.07</span></td>
+</tr>
+</table>
+
+</section>
+<section id="translator_time_done">
+<h1>translator_time_done</h1>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>translator_<wbr>time_<wbr>done</th>
+<th>issue1063-translate-only</th>
+<th>issue1063-v1-translate-only</th>
+<th>Diff (translate-only)</th>
+</tr>
+<tr>
+<td><a href="#translator_time_done-examples" onclick="show_table(document.getElementById('translator_time_done-examples'));">examples</a> (3)</td>
+<td class="right"><span style="color:rgb(0,0,178)">184.74</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">35.67</span></td>
+<td class="right"><span style="color:green">-149.07</span></td>
+</tr>
+<tr>
+<td><strong>Sum (3)</strong></td>
+<td class="right"><span style="color:rgb(0,0,178)">184.74</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">35.67</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Sum of diffs</td>
+<td></td>
+<td></td>
+<td class="right">-149.07</td>
+</tr>
+<tr>
+<td>Arithmetic mean of diffs</td>
+<td></td>
+<td></td>
+<td class="right">-149.07</td>
+</tr>
+</table>
+
+<p>
+Only instances where all algorithms have a value for "translator_time_done" are considered. Each table entry gives the sum of "translator_time_done" for that domain. The bottom row reports the sum across all domains.
+</p>
+
+<section id="translator_time_done-examples">
+<h2>examples</h2>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>translator_<wbr>time_<wbr>done</th>
+<th>issue1063-translate-only</th>
+<th>issue1063-v1-translate-only</th>
+<th>Diff (translate-only)</th>
+</tr>
+<tr>
+<td>deep.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">21.35</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">6.41</span></td>
+<td class="right"><span style="color:green">-14.94</span></td>
+</tr>
+<tr>
+<td>deeper.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">144.48</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">25.47</span></td>
+<td class="right"><span style="color:green">-119.01</span></td>
+</tr>
+<tr>
+<td>deepest.pddl</td>
+<td><span style="color:rgb(127,127,127)">None</span></td>
+<td><span style="color:rgb(127,127,127)">None</span></td>
+<td class="right"><span style="color:grey">-</span></td>
+</tr>
+<tr>
+<td>shallow.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">18.91</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">3.79</span></td>
+<td class="right"><span style="color:green">-15.12</span></td>
+</tr>
+<tr>
+<td>Sum of diffs</td>
+<td></td>
+<td></td>
+<td class="right">-149.07</td>
+</tr>
+<tr>
+<td>Arithmetic mean of diffs</td>
+<td></td>
+<td></td>
+<td class="right">-49.69</td>
+</tr>
+</table>
+
+</section>
+</section>
+</div>
+</article></body></html>
